@@ -9,13 +9,16 @@ import { ProdutosService } from '../shared/produtos.service';
   styleUrls: ['./lista-produtos.page.scss'],
 })
 export class ListaProdutosPage implements OnInit {
-produtos: Observable<any[]>
+produtos: Observable<any[]>;
+categorias: Observable<any[]>;
 
   constructor(private router: Router,
     private produtosService: ProdutosService) { }
 
   ngOnInit() {
     this.produtos = this.produtosService.getAll();
+    this.categorias = this.produtosService.getCategoriasAll();
   }
+
 
 }

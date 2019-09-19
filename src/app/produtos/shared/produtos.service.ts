@@ -23,5 +23,17 @@ export class ProdutosService {
       }
         )
     )
+
+  
   }
+
+  
+  getCategoriasAll() {
+    return this.db.list(FirebasePath.CATEGORIAS).snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(m => ({key: m.payload.key, ...m.payload.val() }))
+           })
+    )
+     }
+
 }
