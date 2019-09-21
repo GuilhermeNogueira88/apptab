@@ -36,4 +36,17 @@ export class ProdutosService {
     )
      }
 
+
+     //buscar  produto por uma key//
+    // ela pega o path = "/produtos" e concactena com a key//
+    //exemplo "/produtos" + "15n64n13s4ng65s"
+    // "/produtos/15n64n13s4ng65s"//
+     getByKey(key: string){
+       const path =`${FirebasePath.PRODUTOS}${key}`
+       return this.db.object(path).snapshotChanges().pipe(
+         map(change => {
+           return ({ key: change.key, ...change.payload.val() });
+         })
+       )
+     }
 }
