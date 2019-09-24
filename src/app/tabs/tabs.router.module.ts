@@ -56,7 +56,7 @@ const routes: Routes = [
     ]
   },
   {
-  path: 'pedido',
+  path: 'pedidos',
   children: [
     {
       path: 'carrinho/novo-item/:key',
