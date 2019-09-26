@@ -46,7 +46,7 @@ total: number = 0;
 
 criarFormulario(){
   this.form = this.formBuilder.group({
-    produtosKey: [''],
+    produtoKey: [''],
     produtoNome: [''],
     produtoDescricao: [''],
     produtoPreco: [''],
@@ -62,7 +62,7 @@ this.atualizaTotal(this.form.value.quantidade);
 
 adicionarQuantidade(){
 let qtd = this.form.value.quantidade;
-qtd++
+qtd++;
 this.atualizaTotal(qtd);
 }
 
@@ -82,7 +82,14 @@ atualizaTotal(quantidade: number){
 }
 
 onSubmit(){
+if(this.form.valid){
+  this.carrinhoService.insert(this.form.value)
+  .then(() =>  {
+  this.toast.show('Produto adicionado com sucesso!!!');
+  this.router.navigate(['/tabs/produtos']);
+  })
 
+ }
 }
 
 

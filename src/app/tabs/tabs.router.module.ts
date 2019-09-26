@@ -36,11 +36,11 @@ const routes: Routes = [
         ]
       },
 
-      
+
 
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/produtos',
         pathMatch: 'full'
       }
     ]
@@ -61,9 +61,16 @@ const routes: Routes = [
     {
       path: 'carrinho/novo-item/:key',
       loadChildren: '../pedidos/form-item-pedido/form-item-pedido.module#FormItemPedidoPageModule'
+    },
+    {
+      path: 'carrinho',
+      loadChildren: '../pedidos/lista-item-pedido/lista-item-pedido.module#ListaItemPedidoPageModule'
     }
   ]
 },
+
+
+
   {
     path: '',
     redirectTo: '/tabs/produtos',
