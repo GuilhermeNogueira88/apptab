@@ -15,12 +15,26 @@ export class FormEnderecoPage implements OnInit {
 
   constructor(private enderecoService: EnderecoService,
               private formBuilder: FormBuilder,
-              private route: ActivatedRoute, 
+              private route: ActivatedRoute,
               private toast: ToastService) { }
 
   ngOnInit() {
-    this.criarFormulario();
+        this.criarFormulario();
+        let key = this.route.snapshot.paramMap.get('key');
+        if (key) {
+          const subscribe = this.enderecoService.getByKey(key).subscribe( (endereco: any) => {
+            subscribe.unsubscribe();
+            this.key = endereco.key;
+            this.formEndereco.patchValue({
+                cep: endereco.cep,
+                logradouro: endereco.logradouro,
+                numero: endereco.numero,
+                complemento: endereco.complemento,
+                bairro: endereco.bairro
+      });
+    });
   }
+}
     criarFormulario(){
       this.key = null;
       this.formEndereco = this.formBuilder.group({
@@ -32,10 +46,10 @@ export class FormEnderecoPage implements OnInit {
       });
     }
 
-    onSubmit(){
-      if (this.formEndereco.valid){
-        let result : Promise<{}>;
-        if (this.key){
+    onSubmit() {
+      if (this.formEndereco.valid) {
+        let result: Promise<{}>;
+        if (this.key) {
           result = this.enderecoService.update(this.formEndereco.value, this.key);
         } else {
           result = this.enderecoService.insert(this.formEndereco.value);
@@ -44,13 +58,16 @@ export class FormEnderecoPage implements OnInit {
         result
         .then( () => {
           this.toast.show('Endereço salvo com sucesso');
-          if(!this.key){
+          if (!this.key) {
             this.criarFormulario();
           }
         })
         .catch( () => {
           this.toast.show('Erro ao salvar o endereço');
-        })
+        });
       }
     }
   }
+
+
+

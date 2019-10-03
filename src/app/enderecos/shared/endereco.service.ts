@@ -50,21 +50,20 @@ return this.save(endereco, null);
   }
 
   private save(endereco: any, key: string){
-return new Promise( (resolve, reject) => {
-  const enderecosRef = this.getEnderecosRef();
-
-  if (key) {
-  enderecosRef.update(key, endereco)
-  .then( (result: any) => resolve(result.key) )
-  .catch( () => reject());
-} else {
-  enderecosRef.push(endereco)
-  .then( (result: any) => resolve(result.key) );
-       }
-    })
+      return new Promise( (resolve, reject) => {
+        const enderecosRef = this.getEnderecosRef();
+        if (key) {
+            enderecosRef.update(key, endereco)
+              .then( () => resolve(key) )
+              .catch( () => reject());
+        } else {
+            enderecosRef.push(endereco)
+              .then( (result: any) => resolve(result.key) );
+        }
+      })
   }
 
-remove(key: string) {
+remover(key: string) {
   return this.getEnderecosRef().remove(key);
 }
 
