@@ -10,7 +10,9 @@ export class ProdutosService {
 
   constructor(private db:AngularFireDatabase) { }
 
-  getAll(categoriaKey:string = null){
+  // este metôdo apesar de ser um "getAll" ele tem parametros dentro dos parenteses,
+  // se string estiver null traz tudo, se não traz o que estiver em categoriaKey
+  getAll(categoriaKey string = null){
     return this.db.list(FirebasePath.PRODUTOS, q => {
     if(categoriaKey){
      return q.orderByChild('categoriaKey').equalTo(categoriaKey)
