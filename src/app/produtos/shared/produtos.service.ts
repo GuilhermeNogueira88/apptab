@@ -8,11 +8,11 @@ import { map } from 'rxjs/operators';
 })
 export class ProdutosService {
 
-  constructor(private db:AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) { }
 
   // este metôdo apesar de ser um "getAll" ele tem parametros dentro dos parenteses,
   // se string estiver null traz tudo, se não traz o que estiver em categoriaKey
-  getAll(categoriaKey string = null){
+  getAll(categoriaKey: string = null) {
     return this.db.list(FirebasePath.PRODUTOS, q => {
     if(categoriaKey){
      return q.orderByChild('categoriaKey').equalTo(categoriaKey)
@@ -24,7 +24,7 @@ export class ProdutosService {
         return changes.map(m => ({key: m.payload.key, ...m.payload.val() }))
       }
         )
-    )
+    );
 
   
   }
