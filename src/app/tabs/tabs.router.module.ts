@@ -1,3 +1,4 @@
+import { AuthGuard } from './../usuarios/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -12,7 +13,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren:'../produtos/lista-produtos/lista-produtos.module#ListaProdutosPageModule'
+            loadChildren: '../produtos/lista-produtos/lista-produtos.module#ListaProdutosPageModule'
           }
         ]
       },
@@ -35,9 +36,6 @@ const routes: Routes = [
           }
         ]
       },
-
-
-
       {
         path: '',
         redirectTo: '/tabs/produtos',
@@ -45,7 +43,6 @@ const routes: Routes = [
       }
     ]
   },
-
   {
     path: 'usuarios',
     children: [
@@ -57,32 +54,29 @@ const routes: Routes = [
         path: 'enderecos/novo',
         loadChildren: '../enderecos/form-endereco/form-endereco.module#FormEnderecoPageModule'
       },
-       {
+      {
         path: 'enderecos/editar/:key',
         loadChildren: '../enderecos/form-endereco/form-endereco.module#FormEnderecoPageModule'
       }
     ]
   },
   {
-  path: 'pedido',
-  children: [
-    {
-      path: 'carrinho/novo-item/:key',
-      loadChildren: '../pedidos/form-item-pedido/form-item-pedido.module#FormItemPedidoPageModule'
-    },
-    {
-      path: 'carrinho',
-      loadChildren: '../pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule'
-    },
-    {
-      path: 'forma-pagamento',
-      loadChildren: '..'
-    }
-  ]
-},
-
-
-
+    path: 'pedido',
+    children: [
+      {
+        path: 'carrinho/novo-item/:key',
+        loadChildren: '../pedidos/form-item-pedido/form-item-pedido.module#FormItemPedidoPageModule'
+      },
+      {
+        path: 'carrinho',
+        loadChildren: '../pedidos/lista-item-pedido/lista-item-pedido.module#ListaItemPedidoPageModule'
+      },
+      {
+        path: 'forma-pagamento',
+        loadChildren: '../pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule'
+      }
+    ]
+  },
   {
     path: '',
     redirectTo: '/tabs/produtos',

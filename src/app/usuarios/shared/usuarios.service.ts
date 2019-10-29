@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class UsuariosService {
 
   constructor(private afAuth:AngularFireAuth) { }
+
   criarConta(usuario: any) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(usuario.email, usuario.senha)
@@ -40,20 +41,6 @@ export class UsuariosService {
     });
   }
 
-      logout() {
-      return this.afAuth.auth.signOut();
-  }
-
-getDadosUsuarios(){
-  const user = { name: '', email: ''};
-  if (this.afAuth.auth.currentUser) {
-    user.name = this.afAuth.auth.currentUser.displayName;
-    user.email = this.afAuth.auth.currentUser.email;
-  }
-return user;
-
-}
-
   enviarEmailResetarSenha(email: string) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.sendPasswordResetEmail(email)
@@ -64,6 +51,20 @@ return user;
           reject(this.handlerError(error));
         });
     });
+  }
+  
+  logout() {
+    return this.afAuth.auth.signOut();
+  }
+
+  getDadosUsuario(){
+    const user = { name: '', email: ''};
+    if (this.afAuth.auth.currentUser) {
+      user.name = this.afAuth.auth.currentUser.displayName;
+      user.email = this.afAuth.auth.currentUser.email;
+    }
+
+    return user;
   }
 
   handlerError(error: any) {
@@ -84,5 +85,5 @@ return user;
 
     return mensagem;
   }
-  
+    
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { ToastService } from '../../core/shared/toast.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuariosService } from '../shared/usuarios.service';
+import { ToastService } from '../../core/shared/toast.service';
 
 @Component({
   selector: 'app-esqueci-senha',
@@ -13,7 +13,6 @@ export class EsqueciSenhaPage implements OnInit {
   
   constructor( private formBuilder: FormBuilder, private usuariosService: UsuariosService,
     private toast: ToastService) { }
-
 
   ngOnInit() {
     this.criarFormulario();
@@ -38,5 +37,6 @@ export class EsqueciSenhaPage implements OnInit {
         });
     }
   }
+
 
 }

@@ -9,18 +9,20 @@ import { Router } from '@angular/router';
 })
 export class PerfilPage implements OnInit {
 user: any = {};
+
   constructor(private usuariosService: UsuariosService,
-    private router: Router) { }
+              private router: Router) { }
 
   ngOnInit() {
-    this.user = this.usuariosService.getDadosUsuarios();
+    this.user = this.usuariosService.getDadosUsuario();
   }
-
 
   sair(){
     this.usuariosService.logout()
-    .then(() => {
+    .then( () => {
       this.router.navigate(['/login']);
     })
   }
+  
+
 }

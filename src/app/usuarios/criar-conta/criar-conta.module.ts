@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CriarContaPage } from './criar-conta.page';
+import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '../../core/shared/shared/shared.module';
-import { RouterModule, Routes } from '@angular/router';
+
+
+import { CriarContaPage } from './criar-conta.page';
 
 const routes: Routes = [
   {
@@ -16,8 +18,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [CriarContaPage]
 })

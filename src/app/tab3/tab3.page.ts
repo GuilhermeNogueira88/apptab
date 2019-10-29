@@ -10,12 +10,13 @@ import { Router } from '@angular/router';
 export class Tab3Page {
 
   constructor(private usuariosService: UsuariosService,
-    private router: Router) {}
+              private router: Router) {}
 
-    sair(){
-      this.usuariosService.logout()
-      .then(() => {
-        this.router.navigate(['/login']);
-      })
-    }
+  sair(){
+    this.usuariosService.logout()
+    .then( () => {
+      this.router.navigate(['/login']);
+    })
+  }
+
 }

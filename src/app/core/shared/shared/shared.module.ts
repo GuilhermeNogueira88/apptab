@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import {  RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ValorComponent } from '../../share/valor/valor.component';
+import { ValorComponent } from '../valor/valor.component';
 
 @NgModule({
   declarations: [ValorComponent],
@@ -13,12 +13,12 @@ import { ValorComponent } from '../../share/valor/valor.component';
     RouterModule,
     ReactiveFormsModule
   ],
-  exports: [
-    ValorComponent,
+  exports:[
     CommonModule,
     IonicModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ValorComponent
   ],
   entryComponents:[ValorComponent]
 })
