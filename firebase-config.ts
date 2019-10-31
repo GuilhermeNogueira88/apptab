@@ -1,4 +1,3 @@
-
 export const firebaseconfig = {
   apiKey: "AIzaSyCOg5brnG8zVJVuLrCm0Q5082YbFkfjI4Y",
   authDomain: "delivery-gui.firebaseapp.com",

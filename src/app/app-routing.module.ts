@@ -5,8 +5,8 @@ import { AuthGuard } from './usuarios/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './tabs/tabs.module#TabsPageModule'
-    // loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthGuard]
+    // loadChildren: './tabs/tabs.module#TabsPageModule'
+    loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthGuard]
   },
   { path: 'criar-conta', loadChildren: './usuarios/criar-conta/criar-conta.module#CriarContaPageModule' },
   { path: 'login', loadChildren: './usuarios/login/login.module#LoginPageModule' },

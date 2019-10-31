@@ -1,4 +1,3 @@
-import { AuthGuard } from './../usuarios/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -59,7 +58,7 @@ const routes: Routes = [
         loadChildren: '../enderecos/form-endereco/form-endereco.module#FormEnderecoPageModule'
       }
     ]
-  },
+  },  
   {
     path: 'pedido',
     children: [
@@ -76,7 +75,7 @@ const routes: Routes = [
         loadChildren: '../pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule'
       }
     ]
-  },
+  },    
   {
     path: '',
     redirectTo: '/tabs/produtos',

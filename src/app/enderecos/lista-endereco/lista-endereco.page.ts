@@ -23,7 +23,7 @@ export class ListaEnderecoPage implements OnInit {
               private modalController: ModalController) { }
 
   ngOnInit() {
-    // this.enderecos = this.enderecoService.getAll();
+    this.enderecos = this.enderecoService.getAll();
   }
 
   getEnderecoText(endereco: any) {

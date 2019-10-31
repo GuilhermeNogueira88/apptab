@@ -1,5 +1,3 @@
-import { ListaEnderecoPage } from 'src/app/enderecos/lista-endereco/lista-endereco.page';
-import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -15,15 +13,17 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { DatePipe } from '@angular/common';
 import { firebaseconfig } from 'firebase-config';
 
 
 @NgModule({
-  declarations: [AppComponent, ListaEnderecoPage],
-  entryComponents: [ListaEnderecoPage],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
+    BrowserModule, 
+    IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseconfig),
     AngularFireAuthModule,
@@ -33,7 +33,7 @@ import { firebaseconfig } from 'firebase-config';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-  DatePipe
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

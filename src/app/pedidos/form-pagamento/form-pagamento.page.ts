@@ -1,12 +1,12 @@
-import { Router } from '@angular/router';
-import { PedidoService } from './../shared/pedido.service';
-import { CarrinhoService } from './../shared/carrinho.service';
-import { Observable } from 'rxjs';
+import { ListaEnderecoPage } from 'src/app/enderecos/lista-endereco/lista-endereco.page';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 import { ToastService } from 'src/app/core/shared/toast.service';
-import { ListaEnderecoPage } from 'src/app/enderecos/lista-endereco/lista-endereco.page';
+import { Router } from '@angular/router';
+import { PedidoService } from './../shared/pedido.service';
+import { CarrinhoService } from './../shared/carrinho.service';
 
 @Component({
   selector: 'app-form-pagamento',
@@ -49,11 +49,11 @@ enderecoSelecionado: string = this.MENSAGEM_ENDERECO_VAZIO;
     });
   }
 
-  selecionarEndereco(){
+  selecionarEndereco() {
     this.modalCtrl.create({
       component: ListaEnderecoPage,
       componentProps: {
-        selecionaEndereco: true
+        selecionarEndereco: true
       },
       showBackdrop: true,
       backdropDismiss: true
@@ -71,7 +71,7 @@ enderecoSelecionado: string = this.MENSAGEM_ENDERECO_VAZIO;
   }
 
   onSubmit(){
-    if(this.form.valid){
+    if (this.form.valid) {
       this.pedidoService.gerarPedido(this.form.value)
         .then(() => {
           this.toast.show('Pedido salvo com sucesso. Aguarde a confirmação.');
