@@ -67,7 +67,7 @@ enderecoSelecionado: string = this.MENSAGEM_ENDERECO_VAZIO;
         this.form.patchValue({ enderecoEntrega: this.enderecoSelecionado });
       });
       modal.present();
-    })
+    });
   }
 
   onSubmit(){

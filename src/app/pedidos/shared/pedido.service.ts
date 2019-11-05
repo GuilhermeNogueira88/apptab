@@ -42,7 +42,7 @@ export class PedidoService {
           const pedidoProdutoPath = `${FirebasePath.PEDIDOS_PRODUTOS}${pedidoKey}/${produto.produtoKey}`;
           pedidoObj[pedidoProdutoPath] = {
             produtoNome: produto.produtoNome,
-            produtoDescricao: produto.Descricao,
+            produtoDescricao: produto.produtoDescricao,
             observacao: produto.observacao,
             produtoPreco: produto.produtoPreco,
             quantidade: produto.quantidade,
