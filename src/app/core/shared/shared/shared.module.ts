@@ -19,7 +19,8 @@ import { ListaEnderecoPage } from 'src/app/enderecos/lista-endereco/lista-endere
     IonicModule,
     RouterModule,
     ReactiveFormsModule,
-    ValorComponent
+    ValorComponent,
+    ListaEnderecoPage
   ],
   entryComponents:[ValorComponent, ListaEnderecoPage]
 })

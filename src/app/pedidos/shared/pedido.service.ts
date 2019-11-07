@@ -23,7 +23,7 @@ export class PedidoService {
     ENTREGUE: 3
   };
 
-  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth, 
+  constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth,
     private carrinhoService: CarrinhoService, private dateFormat: DatePipe) { }
 
   gerarPedido(pedido: any){
@@ -57,8 +57,8 @@ export class PedidoService {
               .catch(() => reject ());
           })
           .catch( () => reject());
-      })
-    })
+      });
+    });
   }
 
   private criarObjetoPedido(pedido: any){
@@ -68,7 +68,7 @@ export class PedidoService {
       numero: numeroPedido,
       status: PedidoService.STATUS.ENVIADO,
       data: dataPedido,
-      formPagamento: pedido.formaPagamento,
+      formPagamento: pedido.formaPagamento, //
       trocoPara: pedido.trocoPara,
       tipoCartao: pedido.tipoCartao,
       enderecoEntrega: pedido.enderecoEntrega,

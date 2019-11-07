@@ -57,7 +57,7 @@ const routes: Routes = [
         loadChildren: '../enderecos/form-endereco/form-endereco.module#FormEnderecoPageModule'
       }
     ]
-  },  
+  },
   {
     path: 'pedido',
     children: [
@@ -72,9 +72,13 @@ const routes: Routes = [
       {
         path: 'forma-pagamento',
         loadChildren: '../pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule'
+      },
+      {
+        path: 'produtos/:key',
+        loadChildren: '../pedidos/lista-produto-pedido/lista-produto-pedido.module#ListaProdutoPedidoPageModule'
       }
     ]
-  },    
+  },
   {
     path: '',
     redirectTo: '/tabs/produtos',
